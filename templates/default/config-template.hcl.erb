@@ -1,0 +1,27 @@
+<% def hcl(t, key, bool=true)
+  if t[key].class == Hash
+    return "#{key.to_s} {\n#{hcl_hash(t[key])}  }"
+  else
+    return "#{key.to_s} = #{bool ? "\"#{t[key]}\"" : t[key]}"
+  end
+end -%>
+<% def hcl_hash(h, bool=true)
+  str = ""
+  h.each { |k, v| str += "    #{k} = \"#{v}\"\n" }
+  str
+end -%>
+<% @templates.each do |tpl| -%>
+template {
+<% tpl.each_key do |k|
+  bool = if tpl[k].class == TrueClass || tpl[k].class == FalseClass
+           false
+         elsif k.to_s == 'perms'
+           false
+         else
+           true
+         end -%>
+  <%= hcl(tpl, k, bool) %> 
+<% end -%>
+}
+
+<% end -%>
