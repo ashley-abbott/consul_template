@@ -41,4 +41,3 @@ if platform?('windows')
     'AppRotateBytes'   => 20_000_000,
   }
 end
-

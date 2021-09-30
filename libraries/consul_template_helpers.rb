@@ -41,6 +41,7 @@ class Chef
       ConsulTemplate.new(node)
     end
   end
+
   class Recipe
     def consul_template
       ConsulTemplate.new(node)

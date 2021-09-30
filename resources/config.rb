@@ -13,11 +13,11 @@ action :create do
   template ::File.join(node['consul_template']['config_dir'], new_resource.name) do
     cookbook 'consul_template'
     source 'config-template.hcl.erb'
-    #unless platform?('windows')
-    #user consul_template_user
-    #group consul_template_group
-    #mode node['consul_template']['template_mode']
-    #end
+    # unless platform?('windows')
+    # user consul_template_user
+    # group consul_template_group
+    # mode node['consul_template']['template_mode']
+    # end
     variables(
       templates: templates
     )

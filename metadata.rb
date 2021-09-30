@@ -6,9 +6,9 @@ description 'Installs/Configures consul_template'
 version '0.1.0'
 chef_version '>= 15.0'
 
-supports 'centos', '>= 7'
+supports 'centos', '>= 7.0'
 supports 'ubuntu', '>= 14.04'
-supports 'windows server', '>= 2012-r2'
+supports 'windows server', '>= 2012-r2.0'
 supports 'windows-10'
 
 # The `issues_url` points to the location where issues for this cookbook are
