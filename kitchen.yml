@@ -45,7 +45,6 @@ suites:
     run_list:
       - recipe[consul::default]
       - recipe[consul_template::default]
-      - recipe[consul_template::template]
     attributes:
       consul:
         config:

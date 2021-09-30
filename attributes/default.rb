@@ -13,8 +13,9 @@ default['consul_template']['binary_name'] = if platform?('windows')
                                             end
 default['consul_template']['config'] = {}
 default['consul_template']['config']['consul'] = {}
+default['consul_template']['config']['vault'] = {}
 default['consul_template']['config']['consul']['address'] = '127.0.0.1:8500'
-default['consul_template']['config']['vault']['address'] = 'http://120.0.0.1:8200'
+default['consul_template']['config']['vault']['address'] = 'http://127.0.0.1:8200'
 default['consul_template']['config_dir'] = if platform?('windows')
                                              ENV['SystemDrive'] + '\Program Files\consul_template\consul_template.d'
                                            else
@@ -26,8 +27,6 @@ default['consul_template']['log_dir'] = if platform?('windows')
                                           '/var/log/consul-template'
                                         end
 default['consul_template']['environment_variables'] = {}
-default['consul_template']['consul_addr'] = '127.0.0.1:8500'
-default['consul_template']['vault_addr'] = 'https://127.0.0.1:8200'
 default['consul_template']['manage_service'] = false
 
 # Windows only

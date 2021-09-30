@@ -36,8 +36,6 @@ elsif node['init_package'] == 'systemd'
       },
       Service: {
         Environment: "#{node['consul_template']['environment_variables'].map { |key, val| %("#{key}=#{val}") }.join(' ')}",
-        User: "#{node['consul_template']['service_user']}",
-        Group: "#{node['consul_template']['service_group']}",
         ExecStart: "#{node['consul_template']['install_dir']}/#{node['consul_template']['binary_name']} -config #{node['consul_template']['config_dir']}",
         ExecReload: '/bin/kill -HUP $MAINPID',
         ExecStop: '/bin/kill -INT $MAINPID',
