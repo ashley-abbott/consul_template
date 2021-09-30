@@ -49,7 +49,7 @@
 
 *Example:*
 
-```bash
+```ruby
 consul_template_config 'test.hcl' do
   templates [
     {
