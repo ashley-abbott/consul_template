@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/ashley-abbott/consul_template/badge.svg?branch=main)](https://coveralls.io/github/ashley-abbott/consul_template?branch=main)
+
 # consul_template
 
  Installs and configures [consul-template](https://github.com/hashicorp/consul-template)
