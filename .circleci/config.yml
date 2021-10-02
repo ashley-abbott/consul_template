@@ -15,7 +15,7 @@ jobs:
   lint:
     docker:
       - image: chef/chefworkstation:current
-    executort: chefdk
+    executor: chefdk
     steps:
       - checkout
       - run:
