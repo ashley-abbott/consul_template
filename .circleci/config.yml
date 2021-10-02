@@ -23,6 +23,8 @@ orbs:
 jobs:
   lint:
     executor: chefdk
+    environment:
+      CHEF_LICENSE: "accept-no-persist"
     steps:
       - checkout
       - run:
@@ -30,6 +32,8 @@ jobs:
           command: delivery local lint
   unit:
     executor: chefdk
+    environment:
+      CHEF_LICENSE: "accept-no-persist"
     steps:
       - checkout
       - run:
