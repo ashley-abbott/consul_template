@@ -4,7 +4,7 @@ version: 2.1
 
 executors:
   chefdk:
-    docker: [image: "chef/chefworkstation:current"]
+    docker: [image: "chef/chefworkstation:21.2.278"]
   ruby:
     docker: [image: "circleci/ruby"]
   chef:
