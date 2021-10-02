@@ -7,20 +7,29 @@ version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
   coveralls: coveralls/coveralls@1.0.6
+  kitchen: sous-chefs/kitchen@2.1.1
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  build:
+  lint:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-    executor: ruby/default
+      - image: chef/chefworkstation:current
+    executort: chefdk
     steps:
       - checkout
       - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
+          name: Run Delivery Lint
+          command: delivery local lint
+  unit:
+    docker:
+      - image: chef/chefworkstation:current
+    executor: chefdk
+    steps:
+      - checkout
+      - run:
+          name: Run Unit Tests
+          command: delivery local unit
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -28,4 +37,5 @@ workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - build
+      - lint
+      - unit
