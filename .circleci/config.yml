@@ -29,7 +29,9 @@ jobs:
       - checkout
       - run:
           name: Run Delivery Lint
-          command: delivery local lint
+          command: |
+            bundle install
+            delivery local lint
   unit:
     executor: chefdk
     environment:
@@ -38,7 +40,9 @@ jobs:
       - checkout
       - run:
           name: Run Unit Tests
-          command: delivery local unit
+          command: |
+            bundle install
+            delivery local unit
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
