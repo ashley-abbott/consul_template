@@ -2,4 +2,4 @@ require 'chefspec'
 require 'chefspec/berkshelf'
 require 'coveralls'
 
-Coveralls.wear!
+Coveralls.wear! unless ENV['CI'].nil?
