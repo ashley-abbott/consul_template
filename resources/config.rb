@@ -26,4 +26,9 @@ action :create do
 end
 
 action :delete do
+  template ::File.join(node['consul_template']['config_dir'], new_resource.name) do
+    cookbook 'consul_template'
+    source 'config-template.hcl.erb'
+    action :delete
+  end
 end
