@@ -15,6 +15,8 @@ describe 'consul_template::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it { is_expected.to create_remote_file_if_missing("#{Chef::Config['file_cache_path']}/consul-template_0.25.1_linux_amd64.zip") }
   end
 
   context 'When all attributes are default, on CentOS 7' do
@@ -26,6 +28,6 @@ describe 'consul_template::default' do
       expect { chef_run }.to_not raise_error
     end
 
-    # it { is_expected.to create_remote_file_if_missing("#{Chef::Config['file_cache_path']}/consul-template_0.25.1_linux_x86_64.zip") }
+    it { is_expected.to create_remote_file_if_missing("#{Chef::Config['file_cache_path']}/consul-template_0.25.1_linux_amd64.zip") }
   end
 end
