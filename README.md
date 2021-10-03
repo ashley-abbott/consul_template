@@ -1,4 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/ashley-abbott/consul_template/badge.svg?branch=main)](https://coveralls.io/github/ashley-abbott/consul_template?branch=main)
+[![CircleCI](https://circleci.com/gh/ashley-abbott/consul_template/tree/main.svg?style=shield)](https://circleci.com/gh/ashley-abbott/consul_template/tree/main)
 
 # consul_template
 
