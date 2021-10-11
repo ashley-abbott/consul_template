@@ -52,7 +52,7 @@
 *Example:*
 
 ```ruby
-consul_template_config 'test.hcl' do
+aa_consul_template_config 'test.hcl' do
   templates [
     {
       source: '/path/to/first/source',
