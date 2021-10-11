@@ -1,5 +1,5 @@
 #
-# Cookbook:: consul_template
+# Cookbook:: aa_consul_template
 # Recipe:: service
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
@@ -56,6 +56,4 @@ elsif node['init_package'] == 'systemd'
     supports status: true, restart: true, reload: true
     action :nothing
   end
-else
-  init service
 end

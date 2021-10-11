@@ -1,7 +1,6 @@
-[![Coverage Status](https://coveralls.io/repos/github/ashley-abbott/consul_template/badge.svg?branch=main)](https://coveralls.io/github/ashley-abbott/consul_template?branch=main)
 [![CircleCI](https://circleci.com/gh/ashley-abbott/consul_template/tree/main.svg?style=shield)](https://circleci.com/gh/ashley-abbott/consul_template/tree/main)
 
-# consul_template
+# aa_consul_template
 
  Installs and configures [consul-template](https://github.com/hashicorp/consul-template)
 
@@ -29,7 +28,7 @@
     - Linux: `consul-template`
 - `default['consul_template']['config']['consul']['address']` - Address to access Consul server
   - (default: `127.0.0.1:8500`)
-- `default['consul_template']['config']['vault']['address']` - Address to access Consul Vault
+- `default['consul_template']['config']['vault']['address']` - Address to access Hashicorp Vault
   - (default: `http://127.0.0.1:8200`)
 - `default['consul_template']['config_dir']` - Location on the filesystem to place configuration files
   - default:

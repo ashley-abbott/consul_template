@@ -1,8 +1,8 @@
-name 'consul_template'
+name 'aa_consul_template'
 maintainer 'Ashley Abbott'
 maintainer_email 'a.j.abbott24@gmail.com'
 license 'All Rights Reserved'
-description 'Installs/Configures consul_template'
+description 'Installs/Configures consul-template'
 version '0.1.0'
 chef_version '>= 15.0'
 

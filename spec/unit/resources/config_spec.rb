@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe 'consul_template_config' do
+describe 'aa_consul_template_config' do
   default_attributes['consul_template']['config_dir'] = '/etc/consul-template.d'
-  step_into :consul_template_config
+  step_into :aa_consul_template_config
 
   context 'When action is :create, Centos 7' do
     platform 'centos', '7'
 
     recipe do
-      consul_template_config 'test.hcl' do
+      aa_consul_template_config 'test.hcl' do
         templates [
           {
             source: '/path/to/first/source',
@@ -25,7 +25,7 @@ describe 'consul_template_config' do
     platform 'centos', '7'
 
     recipe do
-      consul_template_config 'test.hcl'
+      aa_consul_template_config 'test.hcl'
     end
 
     it { is_expected.to_not create_template('/etc/consul-template.d/test.hcl') }
@@ -35,7 +35,7 @@ describe 'consul_template_config' do
     platform 'centos', '7'
 
     recipe do
-      consul_template_config 'test.hcl' do
+      aa_consul_template_config 'test.hcl' do
         templates []
         action :delete
       end
@@ -48,7 +48,7 @@ describe 'consul_template_config' do
     platform 'ubuntu'
 
     recipe do
-      consul_template_config 'test.hcl' do
+      aa_consul_template_config 'test.hcl' do
         templates [
           {
             source: '/path/to/first/source',
@@ -65,7 +65,7 @@ describe 'consul_template_config' do
     platform 'ubuntu'
 
     recipe do
-      consul_template_config 'test.hcl'
+      aa_consul_template_config 'test.hcl'
     end
 
     it { is_expected.to_not create_template('/etc/consul-template.d/test.hcl') }
@@ -75,7 +75,7 @@ describe 'consul_template_config' do
     platform 'ubuntu'
 
     recipe do
-      consul_template_config 'test.hcl' do
+      aa_consul_template_config 'test.hcl' do
         templates []
         action :delete
       end

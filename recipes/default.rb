@@ -1,5 +1,5 @@
 #
-# Cookbook:: consul_template
+# Cookbook:: aa_consul_template
 # Recipe:: default
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
@@ -18,4 +18,4 @@ archive_file 'consul-template' do
   action :extract
 end
 
-include_recipe 'consul_template::service' if node['consul_template']['manage_service']
+include_recipe 'aa_consul_template::service' if node['consul_template']['manage_service']

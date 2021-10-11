@@ -11,7 +11,7 @@ action :create do
   templates = new_resource.templates
 
   template ::File.join(node['consul_template']['config_dir'], new_resource.name) do
-    cookbook 'consul_template'
+    cookbook 'aa_consul_template'
     source 'config-template.hcl.erb'
     # unless platform?('windows')
     # user consul_template_user
@@ -27,7 +27,7 @@ end
 
 action :delete do
   template ::File.join(node['consul_template']['config_dir'], new_resource.name) do
-    cookbook 'consul_template'
+    cookbook 'aa_consul_template'
     source 'config-template.hcl.erb'
     action :delete
   end

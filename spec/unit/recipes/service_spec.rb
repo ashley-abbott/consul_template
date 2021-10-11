@@ -1,12 +1,12 @@
 #
-# Cookbook:: consul_template
+# Cookbook:: aa_consul_template
 # Spec:: service
 #
 # Copyright:: 2021, The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'consul_template::service' do
+describe 'aa_consul_template::service' do
   context 'When all attributes are default, on Ubuntu 18.04' do
     # for a complete list of available platforms and versions see:
     # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
