@@ -44,6 +44,8 @@ platforms:
 
 suites:
   - name: default
+    run_list:
+      - recipe[aa_consul_template::default]
     verifier:
       inspec_tests:
         - test/integration/default
@@ -51,7 +53,7 @@ suites:
   - name: with_consul
     run_list:
       - recipe[consul::default]
-      - recipe[consul_template::default]
+      - recipe[aa_consul_template::default]
     attributes:
       consul:
         config:
