@@ -39,11 +39,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Chef Workstation
-          command: |
-            wget https://packages.chef.io/files/stable/chef-workstation/21.10.640/ubuntu/20.04/chef-workstation_21.10.640-1_amd64.deb
-            dpkg -i chef-workstation_21.10.640-1_amd64.deb
-      - run:
           name: Run Unit Tests
           command: |
             bundle install
@@ -55,6 +50,11 @@ jobs:
       KITCHEN_LOCAL_YAML: kitchen_docker.yml
     steps:
       - checkout
+      - run:
+          name: Install Chef Workstation
+          command: |
+            wget https://packages.chef.io/files/stable/chef-workstation/21.10.640/ubuntu/20.04/chef-workstation_21.10.640-1_amd64.deb
+            dpkg -i chef-workstation_21.10.640-1_amd64.deb
       - run:
           name: Test Kitchen
           command: |
