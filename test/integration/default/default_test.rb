@@ -8,9 +8,9 @@ unless os.windows?
   describe user('root'), :skip do
     it { should exist }
   end
-end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+  describe file("#{Chef::Config['file_cache_path']}/#{consul_template.archive}") do
+    it { should exist }
+    its('sha256') { should eq consul_template.checksum }
+  end
 end
