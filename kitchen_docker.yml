@@ -18,7 +18,7 @@ platforms:
     driver:
       image: dokken/ubuntu-18.04
       privileged: true
-      pid_one_command: /usr/lib/systemd/systemd
+      pid_one_command: /bin/systemd
       volumes:
         - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
