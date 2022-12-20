@@ -38,14 +38,6 @@ platforms:
       volumes:
         - /sys/fs/cgroup:/sys/fs/cgroup:ro
 
-  - name: windows
-    driver:
-      image: mcr.microsoft.com/windows:ltsc2019
-
-  - name: windows-server
-    driver:
-      image: mcr.microsoft.com/windows/server:ltsc2022
-
 suites:
   - name: default
     run_list:
