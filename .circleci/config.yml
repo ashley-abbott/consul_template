@@ -18,6 +18,12 @@ orbs:
   coveralls: coveralls/coveralls@1.0.6
   kitchen: sous-chefs/kitchen@2.1.1
 
+lint_and_unit: &lint_and_unit
+  - delivery
+  # - danger
+  # - lint-yaml
+  # - lint-markdown
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -43,28 +49,20 @@ jobs:
           command: |
             bundle install
             delivery local unit
-  kitchen:
-    executor: chef
-    environment:
-      CHEF_LICENSE: "accept-no-persist"
-    steps:
-      - install_chef:
-          channel: 15
-      - run:
-          command: kitchen test
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   version: 2
-  test_and_lint: # This is the name of the workflow, feel free to change it to better match your workflow.
+  kitchen: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - lint
-      - unit
-  kitchen:
-    jobs:
-      - kitchen:
+      # - lint
+      # - unit
+      - kitchen/delivery:
+          name: delivery
+      - kitchen/dokken-single:
+          name: default
+          suite: default
           requires:
-            - lint
-            - unit
+            *lint_and_unit
