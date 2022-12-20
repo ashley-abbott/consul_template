@@ -43,6 +43,19 @@ jobs:
           command: |
             bundle install
             delivery local unit
+  kitchen:
+    executor: chefdk
+    environment:
+      CHEF_LICENSE: "accept-no-persist"
+      KITCHEN_LOCAL_YAML: kitchen_docker.yml
+    steps:
+      - checkout
+      - run:
+          name: Test Kitchen
+          command: |
+            bundle install
+            kitchen test
+
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -53,9 +66,4 @@ workflows:
     jobs:
       - lint
       - unit
-      - kitchen/dokken-single:
-          name: default
-          suite: default
-          requires:
-            - lint
-            - unit
+      - kitchen

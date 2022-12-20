@@ -1,0 +1,49 @@
+---
+driver:
+  name: docker
+
+## The forwarded_port port feature lets you connect to ports on the VM guest via
+## localhost on the host.
+## see also: https://www.vagrantup.com/docs/networking/forwarded_ports.html
+
+#  network:
+#    - ["forwarded_port", {guest: 80, host: 8080}]
+
+provisioner:
+  name: chef_zero
+
+  ## product_name and product_version specifies a specific Chef product and version to install.
+  ## see the Chef documentation for more details: https://docs.chef.io/config_yml_kitchen.html
+  product_name: chef
+  product_version: 15
+  log_level: info
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: ubuntu-18.04
+  - name: centos-8
+  - name: centos-7
+  - name: windows-server
+    driver_config:
+      image: mcr.microsoft.com/windows/servercore:1607
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - test/integration/default
+
+  - name: with_consul
+    run_list:
+      - recipe[consul::default]
+      - recipe[consul_template::default]
+    attributes:
+      consul:
+        config:
+          bootstrap_expect: 1
+          server: true
+      consul_template:
+        manage_service: true
+
